@@ -1,0 +1,16 @@
+[
+    {
+        "ID": "5d2d9d549cdc8",
+        "Name": "RR111 - Bin replacement or upgrade writes values to the table",
+        "Type": "DATABASE",
+        "LIM_id": "83ef69d1-2c5e-11e5-ad20-22000a7a05f5",
+        "Editable": true,
+        "LIM_name": "Portsmouth",
+        "Category": "RubbishRecycling",
+        "data_type": "integration-lookup",
+        "allow_offline": 0,
+        "Output_template": "{\"systemID\":\"593a5fdb73ecb\",\"systemName\":\"RubbishAndRecycling\",\"query\":\"exec BinReplacementUpgradeProc\\n    @Reference = {case_ref},\\n\\t@FullName  = {fullName},\\n\\t@EmailAddress = {customerEmail} ,\\n\\t@Telephone  = {telephone},\\n\\t@Address = {customerAddress},\\n\\t@Postcode  = {postcode_selected},\\n\\t@Road = {roadA},\\n\\t@FirstLineAddress = {firstLineAddress},\\n\\t@UPRN  = {UPRN},\\n\\t@ReasonApplication = {reasonApplication} ,\\n\\t@ReasonUpgrade = {reasonUpgrade},\\n\\t@SpecifyReason = {pleaseSpecify},\\n    @DateResourceController = {current_date},\\n\\t@OutcomeRC = {outcomeRC},\\n\\t@CaseDueDate  = {caseDue},\\n\\t@TeamAssigned = {outcomeRC},\\n\\t@OfficerAssigned = {assignTo},\\n\\t@BinSize = {binSize},\\n\\t@AmountBags = {agreedBag},\\n\\t@CommentsRC = {commentsRC},\\n\\t@ResourceController = {resourceController},\\n\\t@DateWasteAssessment = {current_date},\\n\\t@CustomerQualifies = {qualify},\\n\\t@ReasonRejection = {reasonRejection},\\n\\t@CommentsWaste = {commentsWaste},\\n\\t@WasteOfficer = {wasteOfficer},\\n\\t@DateBiffa = {current_date},\\n\\t@BinDelivered = {binDelivered},\\n\\t@ReasonNotDelivered = {reasonNotDelivered},\\n\\t@CommentsBiffa = {commentsBiffa},\\n\\t@BiffaOfficer  = {biffaOfficer}\",\"results_page_columns_db\":\"\",\"secure_fields_db_database\":\"\",\"escapeTokens\":\"yes\"}",
+        "log_only_on_error": 0,
+        "error_notification": "{\"LIM_id\":\"3f07ecf4-0dfa-11e2-b0b9-12313b03ed59\",\"LIM_name\":\"LIM14\",\"recipients_to\":\"Daniela.Dutu@portsmouthcc.gov.uk\"}"
+    }
+]
