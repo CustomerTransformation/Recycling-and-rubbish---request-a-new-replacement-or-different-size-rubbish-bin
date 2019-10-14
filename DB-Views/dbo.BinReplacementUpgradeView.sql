@@ -1,12 +1,14 @@
 USE [ProdRubbishRecycling]
 GO
 
-/****** Object:  View [dbo].[BinReplacementUpgradeView]    Script Date: 03/10/2019 14:06:07 ******/
+/****** Object:  View [dbo].[BinReplacementUpgradeView]    Script Date: 14/10/2019 10:50:30 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
+
 
 
 
@@ -27,7 +29,6 @@ Reference,
 ,[Postcode]
 ,[Road]
 ,[FirstLineAddress]
-,[UPRN]
 ,[ReasonApplication]
 ,[ReasonUpgrade]
 ,[SpecifyReason]
@@ -47,6 +48,8 @@ Reference,
 ,CONVERT(VARCHAR(20),[DateBiffa], 103) AS DateBiffa
 ,[BinDelivered]
  ,[ReasonNotDelivered]
+ ,[OldBinPicked]
+ ,[ReasonNotPicked]
 ,[CommentsBiffa]
 ,[BiffaOfficer]
   FROM [BinReplacementUpgrade]

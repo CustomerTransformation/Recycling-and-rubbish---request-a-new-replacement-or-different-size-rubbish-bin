@@ -1,7 +1,7 @@
 USE [ProdRubbishRecycling]
 GO
 
-/****** Object:  Table [dbo].[BinReplacementUpgrade]    Script Date: 03/10/2019 14:05:00 ******/
+/****** Object:  Table [dbo].[BinReplacementUpgrade]    Script Date: 14/10/2019 10:50:02 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -42,6 +42,8 @@ CREATE TABLE [dbo].[BinReplacementUpgrade](
 	[ReasonNotDelivered] [varchar](max) NULL,
 	[CommentsBiffa] [varchar](max) NULL,
 	[BiffaOfficer] [varchar](max) NULL,
+	[OldBinPicked] [varchar](max) NULL,
+	[ReasonNotPicked] [varchar](max) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

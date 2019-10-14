@@ -1,7 +1,7 @@
 USE [ProdRubbishRecycling]
 GO
 
-/****** Object:  StoredProcedure [dbo].[BinReplacementUpgradeProc]    Script Date: 03/10/2019 14:06:47 ******/
+/****** Object:  StoredProcedure [dbo].[BinReplacementUpgradeProc]    Script Date: 14/10/2019 10:51:01 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -47,7 +47,9 @@ CREATE PROCEDURE [dbo].[BinReplacementUpgradeProc]
 	@BinDelivered varchar(max) ,
 	@ReasonNotDelivered varchar(max) ,
 	@CommentsBiffa varchar(max) ,
-	@BiffaOfficer varchar(max)  
+	@BiffaOfficer varchar(max),
+	@OldBinPicked varchar(max),
+	@ReasonNotPicked varchar(max) 
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -89,7 +91,9 @@ BEGIN
 			BinDelivered = ISNULL(@BinDelivered,''), --this needs to be either yes or no, so that I can display outstanding jobs for Biffa where Bindelivered is no; if I have multiple values in there, I cannot do that
 			ReasonNotDelivered = LTRIM(ISNULL(ReasonNotDelivered,'') + ' ' + ISNULL(@ReasonNotDelivered,'')),
 			CommentsBiffa = LTRIM(ISNULL(CommentsBiffa ,'') + ' ' + ISNULL(@CommentsBiffa,'')),
-			BiffaOfficer = LTRIM(ISNULL(BiffaOfficer,'') + ' ' + ISNULL(@BiffaOfficer,''))
+			BiffaOfficer = LTRIM(ISNULL(BiffaOfficer,'') + ' ' + ISNULL(@BiffaOfficer,'')),
+			OldBinPicked = LTRIM(ISNULL(OldBinPicked,'') + ' ' + ISNULL(@OldBinPicked,'')),
+			ReasonNotPicked = LTRIM(ISNULL(ReasonNotPicked,'') + ' ' + ISNULL(@ReasonNotPicked,''))
 			WHERE Reference = @Reference
 			END
 			
