@@ -11,11 +11,12 @@
     "date_due_warn": "",
     "showCaseReference": false,
     "isSubform": false,
-    "notes": false,
+    "notes": "amended the route ",
     "initial_stage": "Application stage",
     "initial_stage_id": "AF-Stage-25081082-78d1-472d-8e38-3abbd82a5738",
     "prefix": "RR",
-    "serverSubmit": true
+    "serverSubmit": true,
+    "isPublished": true
   },
   "stages": {
     "Application stage": {
@@ -1088,6 +1089,51 @@
                               "id": "AF-Field-96b10f88-d9f3-40c5-9a37-02d35fc93a41"
                             },
                             {
+                              "type": "text",
+                              "props": {
+                                "label": "Default for Address In Out",
+                                "dataName": "defaultAddressIn",
+                                "labelPosition": "alignLeft",
+                                "defaultValue": "if({subParam} contains 'ip',0,\n           if({subParam} contains 'op',1,\n                     if({subParam} contains 'ov',2,'')))",
+                                "helpText": "",
+                                "hidden": true,
+                                "readOnly": true,
+                                "summaryField": false,
+                                "displayName": true,
+                                "outerClass": null,
+                                "labelClass": null,
+                                "inputClass": null,
+                                "outputFormat": "normal",
+                                "currencyPrefix": null,
+                                "width": null,
+                                "inputMask": null,
+                                "inputMaskPlaceholder": null,
+                                "lengthCount": null,
+                                "hideWhenBlank": null,
+                                "displayCondition": null,
+                                "mandatoryCondition": null,
+                                "readonlyCondition": null,
+                                "mandatory": false,
+                                "minimumLength": "",
+                                "maximumLength": "",
+                                "validationCondition": "",
+                                "validationMask": "",
+                                "mandatoryMessage": "This information is required",
+                                "minimumLengthMessage": "Please input at least _min_value_ characters",
+                                "maximumLengthMessage": "Please input no more than _max_value_ characters",
+                                "validationMaskMessage": "Please input text of the format: _validation_mask_",
+                                "validationConditionMessage": "This field is invalid",
+                                "validationMaskMessageValue": "Select...",
+                                "separatedDateDefaultValue": {
+                                  "day": "",
+                                  "month": "",
+                                  "year": ""
+                                }
+                              },
+                              "conditionInputs": [],
+                              "id": "AF-Field-90faf09d-7218-48c5-99ad-e1a05ecfc308"
+                            },
+                            {
                               "type": "radio",
                               "props": {
                                 "label": "Is the address",
@@ -1095,7 +1141,7 @@
                                 "labelPosition": "alignLeft",
                                 "defaultType": "text",
                                 "defaultValue": null,
-                                "defaultValueText": "",
+                                "defaultValueText": "{defaultAddressIn}",
                                 "listSource": "one-time-list",
                                 "helpText": "",
                                 "readOnly": false,
@@ -6323,7 +6369,7 @@
                     "label": "New notes",
                     "dataName": "newNotes",
                     "labelPosition": "alignLeft",
-                    "defaultValue": "concat({#TTS},{#TRS},{#ST},\"Resource controller's comments\",{#STE},{#TRD},dateFormat({current_datetime},'dd/MM/yyyy HH:mm'),{#TRC},\n{#TRS},'Action taken',{#TRD},{actionTaken:display},{#TRC},\nif({assignTo} != '', concat(\n{#TRS},'Assign to',{#TRD},{assignTo},{#TRC})),\nif({binSize} != '', concat(\n{#TRS},'Bin size',{#TRD},{binSize},{#TRC})),\nif({agreedBag} != '', concat(\n{#TRS},'Agreed amount of bags',{#TRD},{agreedBag},{#TRC})),\nif({commentsRC} != '', concat(\n{#TRS},'Comments',{#TRD},{commentsRC},{#TRC})),\n{#TRS},\"Resource controller's name\",{#TRD},{resourceController},{#TRC},{#TTC})",
+                    "defaultValue": "concat({#TTS},{#TRS},{#ST},\"Resource controller's comments\",{#STE},{#TRD},dateFormat({current_datetime},'dd/MM/yyyy HH:mm'),{#TRC},\n{#TRS},'Action taken',{#TRD},{actionTaken:display},{#TRC},\nif({assignTo} != '', concat(\n{#TRS},'Assign to',{#TRD},{assignTo},{#TRC})),\nif({binSize} != '', concat(\n{#TRS},'Bin size',{#TRD},{binSize},{#TRC})),\nif({agreedBag} != '', concat(\n{#TRS},'Agreed amount of bags',{#TRD},{agreedBag},{#TRC})),\nif({commentsRC} != '', concat(\n{#TRS},'Comments',{#TRD},{commentsRC},{#TRC})),\n{#TRS},'Case due date',{#TRD},{caseDue},{#TRC},\n{#TRS},\"Resource controller's name\",{#TRD},{resourceController},{#TRC},{#TTC})",
                     "helpText": "",
                     "hidden": true,
                     "readOnly": true,
@@ -6418,6 +6464,46 @@
                   },
                   "conditionInputs": [],
                   "id": "AF-Field-41ead678-a23a-494d-a61a-4abfae32574d"
+                },
+                {
+                  "type": "text",
+                  "props": {
+                    "label": "reasonApp",
+                    "dataName": "reasonApp",
+                    "labelPosition": "alignLeft",
+                    "defaultValue": "{reasonApplication}",
+                    "helpText": "",
+                    "hidden": true,
+                    "readOnly": true,
+                    "summaryField": false,
+                    "displayName": true,
+                    "outerClass": null,
+                    "labelClass": null,
+                    "inputClass": null,
+                    "outputFormat": "normal",
+                    "currencyPrefix": null,
+                    "width": null,
+                    "inputMask": null,
+                    "inputMaskPlaceholder": null,
+                    "lengthCount": null,
+                    "hideWhenBlank": null,
+                    "displayCondition": null,
+                    "mandatoryCondition": null,
+                    "readonlyCondition": null,
+                    "mandatory": false,
+                    "minimumLength": "",
+                    "maximumLength": "",
+                    "validationCondition": "",
+                    "validationMask": "",
+                    "mandatoryMessage": "This field is required",
+                    "minimumLengthMessage": "Please input at least _min_value_ characters",
+                    "maximumLengthMessage": "Please input no more than _max_value_ characters",
+                    "validationMaskMessage": "Please input text of the format: _validation_mask_",
+                    "validationConditionMessage": "This field is invalid",
+                    "validationMaskMessageValue": "Select..."
+                  },
+                  "conditionInputs": [],
+                  "id": "AF-Field-4b913ad3-af8d-4f64-8293-bca7e43732b4"
                 }
               ]
             }
@@ -6430,7 +6516,7 @@
           "destination": "Resource Controller stage",
           "label": "Stage 1 to Stage 2",
           "onComplete": true,
-          "condition": "{actionTaken} is ''",
+          "condition": "{actionTaken} is '' or {actionTaken} icontains 'SendR'",
           "conditionInputs": [
             {
               "element": "select",
@@ -6444,6 +6530,34 @@
               "value": "is ''",
               "type": [
                 "_select"
+              ]
+            },
+            {
+              "element": "select",
+              "value": "or",
+              "type": [
+                "logicalOperators"
+              ]
+            },
+            {
+              "element": "select",
+              "value": "actionTaken",
+              "type": [
+                "fields"
+              ]
+            },
+            {
+              "element": "select",
+              "value": "icontains",
+              "type": [
+                "_select"
+              ]
+            },
+            {
+              "element": "select",
+              "value": "SendR",
+              "type": [
+                "list"
               ]
             }
           ],
@@ -6707,8 +6821,8 @@
         "textColor": "#ffffff",
         "user": "__originator__",
         "backgroundColor": "#0033cc",
-        "date_due": "",
-        "date_due_warn": "",
+        "date_due": "{utc__caseDue}",
+        "date_due_warn": "{utc__caseWarning}",
         "notification": {
           "notify_assigned_users": false,
           "recipients_to": null,
@@ -7842,7 +7956,7 @@
                     "label": "New notes",
                     "dataName": "newNotes",
                     "labelPosition": "alignLeft",
-                    "defaultValue": "concat({#TTS},{#TRS},{#ST},\"Resource controller's comments\",{#STE},{#TRD},dateFormat({current_datetime},'dd/MM/yyyy HH:mm'),{#TRC},\n{#TRS},'Action taken',{#TRD},{actionTaken:display},{#TRC},\nif({assignTo} != '', concat(\n{#TRS},'Assign to',{#TRD},{assignTo},{#TRC})),\nif({binSize} != '', concat(\n{#TRS},'Bin size',{#TRD},{binSize},{#TRC})),\nif({agreedBag} != '', concat(\n{#TRS},'Agreed amount of bags',{#TRD},{agreedBag},{#TRC})),\nif({commentsRC} != '', concat(\n{#TRS},'Comments',{#TRD},{commentsRC},{#TRC})),\n{#TRS},\"Resource controller's name\",{#TRD},{resourceController},{#TRC},{#TTC})",
+                    "defaultValue": "concat({#TTS},{#TRS},{#ST},\"Resource controller's comments\",{#STE},{#TRD},dateFormat({current_datetime},'dd/MM/yyyy HH:mm'),{#TRC},\n{#TRS},'Action taken',{#TRD},{actionTaken:display},{#TRC},\nif({assignTo} != '', concat(\n{#TRS},'Assign to',{#TRD},{assignTo},{#TRC})),\nif({binSize} != '', concat(\n{#TRS},'Bin size',{#TRD},{binSize},{#TRC})),\nif({agreedBag} != '', concat(\n{#TRS},'Agreed amount of bags',{#TRD},{agreedBag},{#TRC})),\nif({commentsRC} != '', concat(\n{#TRS},'Comments',{#TRD},{commentsRC},{#TRC})),\n{#TRS},'Case due date',{#TRD},{caseDue},{#TRC},\n{#TRS},\"Resource controller's name\",{#TRD},{resourceController},{#TRC},{#TTC})",
                     "helpText": "",
                     "hidden": true,
                     "readOnly": true,
@@ -7943,6 +8057,46 @@
                   },
                   "conditionInputs": [],
                   "id": "AF-Field-732b6a22-088b-46a6-9310-d8c19674c686"
+                },
+                {
+                  "type": "text",
+                  "props": {
+                    "label": "reasonApp",
+                    "dataName": "reasonApp",
+                    "labelPosition": "alignLeft",
+                    "defaultValue": "",
+                    "helpText": "",
+                    "hidden": true,
+                    "readOnly": true,
+                    "summaryField": false,
+                    "displayName": true,
+                    "outerClass": null,
+                    "labelClass": null,
+                    "inputClass": null,
+                    "outputFormat": "normal",
+                    "currencyPrefix": null,
+                    "width": null,
+                    "inputMask": null,
+                    "inputMaskPlaceholder": null,
+                    "lengthCount": null,
+                    "hideWhenBlank": null,
+                    "displayCondition": null,
+                    "mandatoryCondition": null,
+                    "readonlyCondition": null,
+                    "mandatory": false,
+                    "minimumLength": "",
+                    "maximumLength": "",
+                    "validationCondition": "",
+                    "validationMask": "",
+                    "mandatoryMessage": "This field is required",
+                    "minimumLengthMessage": "Please input at least _min_value_ characters",
+                    "maximumLengthMessage": "Please input no more than _max_value_ characters",
+                    "validationMaskMessage": "Please input text of the format: _validation_mask_",
+                    "validationConditionMessage": "This field is invalid",
+                    "validationMaskMessageValue": "Select..."
+                  },
+                  "conditionInputs": [],
+                  "id": "AF-Field-95871eb2-037f-4fd8-9f00-0bb7fa28f901"
                 }
               ]
             }
@@ -8006,6 +8160,38 @@
             {
               "element": "select",
               "value": "SendB",
+              "type": [
+                "list"
+              ]
+            }
+          ],
+          "escalationCondition": "",
+          "escalationConditionInputs": {}
+        },
+        "Resource Controller stage": {
+          "origin": "Resource Controller stage",
+          "destination": "Resource Controller stage",
+          "label": "Resource Controller stage to Resource Controller stage",
+          "onComplete": true,
+          "condition": "{actionTaken} icontains 'SendR'",
+          "conditionInputs": [
+            {
+              "element": "select",
+              "value": "actionTaken",
+              "type": [
+                "fields"
+              ]
+            },
+            {
+              "element": "select",
+              "value": "icontains",
+              "type": [
+                "_select"
+              ]
+            },
+            {
+              "element": "select",
+              "value": "SendR",
               "type": [
                 "list"
               ]
@@ -9283,6 +9469,46 @@
                   },
                   "conditionInputs": [],
                   "id": "AF-Field-8fa07de9-3d9e-47fb-a116-f19a5a955261"
+                },
+                {
+                  "type": "text",
+                  "props": {
+                    "label": "reasonApp",
+                    "dataName": "reasonApp",
+                    "labelPosition": "alignLeft",
+                    "defaultValue": "",
+                    "helpText": "",
+                    "hidden": true,
+                    "readOnly": true,
+                    "summaryField": false,
+                    "displayName": true,
+                    "outerClass": null,
+                    "labelClass": null,
+                    "inputClass": null,
+                    "outputFormat": "normal",
+                    "currencyPrefix": null,
+                    "width": null,
+                    "inputMask": null,
+                    "inputMaskPlaceholder": null,
+                    "lengthCount": null,
+                    "hideWhenBlank": null,
+                    "displayCondition": null,
+                    "mandatoryCondition": null,
+                    "readonlyCondition": null,
+                    "mandatory": false,
+                    "minimumLength": "",
+                    "maximumLength": "",
+                    "validationCondition": "",
+                    "validationMask": "",
+                    "mandatoryMessage": "This field is required",
+                    "minimumLengthMessage": "Please input at least _min_value_ characters",
+                    "maximumLengthMessage": "Please input no more than _max_value_ characters",
+                    "validationMaskMessage": "Please input text of the format: _validation_mask_",
+                    "validationConditionMessage": "This field is invalid",
+                    "validationMaskMessageValue": "Select..."
+                  },
+                  "conditionInputs": [],
+                  "id": "AF-Field-eff16c52-d037-46da-97c4-402886e48099"
                 }
               ]
             }
@@ -9843,6 +10069,111 @@
                   "id": "AF-Field-74eee95e-2d67-4439-9e50-28c5ad7b5e60"
                 },
                 {
+                  "type": "radio",
+                  "props": {
+                    "label": "Have you picked up the existing bin?",
+                    "dataName": "picked",
+                    "labelPosition": "alignLeft",
+                    "defaultType": "specific",
+                    "defaultValue": "",
+                    "defaultValueText": null,
+                    "listSource": "one-time-list",
+                    "helpText": "",
+                    "readOnly": false,
+                    "allowOther": false,
+                    "summaryField": false,
+                    "lookup": null,
+                    "lookupCondition": null,
+                    "lookupButton": null,
+                    "preventRunningOnInitialisation": null,
+                    "noResultsMessage": null,
+                    "tokenName": null,
+                    "listOfValues": [
+                      {
+                        "label": "Yes",
+                        "value": "yes"
+                      },
+                      {
+                        "label": "No",
+                        "value": "no"
+                      }
+                    ],
+                    "displayName": true,
+                    "outerClass": null,
+                    "labelClass": null,
+                    "inputClass": null,
+                    "width": null,
+                    "displayStyle": "horizontal",
+                    "styleAsButton": null,
+                    "hideWhenBlank": null,
+                    "hidden": null,
+                    "displayCondition": "{reasonApp} contains 'damaged' or {reasonApp} contains 'larger'",
+                    "selectCondition": null,
+                    "weAdviseAgainstTheUseOfSelectConditions;PleaseUseDisplayConditionsInstead.": null,
+                    "mandatoryCondition": null,
+                    "readonlyCondition": null,
+                    "mandatory": true,
+                    "mandatoryMessage": "This field is required"
+                  },
+                  "conditionInputs": [],
+                  "id": "AF-Field-0bd459e9-f06a-443d-8591-6efbe71a1390"
+                },
+                {
+                  "type": "textarea",
+                  "props": {
+                    "label": "What is the reason?",
+                    "dataName": "reasonNotPicked",
+                    "labelPosition": "alignLeft",
+                    "defaultValue": "",
+                    "helpText": "",
+                    "hidden": false,
+                    "readOnly": false,
+                    "summaryField": false,
+                    "displayName": true,
+                    "outerClass": null,
+                    "labelClass": null,
+                    "inputClass": null,
+                    "width": null,
+                    "lengthCount": null,
+                    "hideWhenBlank": null,
+                    "displayCondition": "{picked} icontains 'no'",
+                    "mandatoryCondition": null,
+                    "readonlyCondition": null,
+                    "mandatory": true,
+                    "minimumLength": null,
+                    "maximumLength": null,
+                    "validationMask": null,
+                    "mandatoryMessage": "This field is required",
+                    "minimumLengthMessage": "Please input at least _min_value_ characters",
+                    "maximumLengthMessage": "Please input no more than _max_value_ characters",
+                    "validationMaskMessage": "Please input text of the format: _validation_mask_"
+                  },
+                  "conditionInputs": [
+                    {
+                      "element": "select",
+                      "value": "picked",
+                      "type": [
+                        "fields"
+                      ]
+                    },
+                    {
+                      "element": "select",
+                      "value": "icontains",
+                      "type": [
+                        "_select"
+                      ]
+                    },
+                    {
+                      "element": "select",
+                      "value": "no",
+                      "type": [
+                        "list"
+                      ]
+                    }
+                  ],
+                  "id": "AF-Field-e67423b3-2888-4886-a352-3fb688f06369"
+                },
+                {
                   "type": "textarea",
                   "props": {
                     "label": "Comments",
@@ -9931,7 +10262,7 @@
                     "label": "New notes",
                     "dataName": "newNotes",
                     "labelPosition": "alignLeft",
-                    "defaultValue": "concat({#TTS},{#TRS},{#ST},\"Biffa's comments\",{#STE},{#TRD},dateFormat({current_datetime},'dd/MM/yyyy HH:mm'),{#TRC},\n{#TRS},'Has the bin been delivered?',{#TRD},{binDelivered},{#TRC},\nif({binDelivered} = 'no', concat(\n{#TRS},'What is the reason?',{#TRD},{reasonNotDelivered},{#TRC})),\nif({commentsBiffa} != '', concat(\n{#TRS},'Comments',{#TRD},{commentsBiffa},{#TRC})),\n{#TRS},\"Officer's name\",{#TRD},{biffaOfficer},{#TRC},{#TTC})",
+                    "defaultValue": "concat({#TTS},{#TRS},{#ST},\"Biffa's comments\",{#STE},{#TRD},dateFormat({current_datetime},'dd/MM/yyyy HH:mm'),{#TRC},\n{#TRS},'Has the bin been delivered?',{#TRD},{binDelivered},{#TRC},\nif({binDelivered} = 'no', concat(\n{#TRS},'What is the reason?',{#TRD},{reasonNotDelivered},{#TRC})),\n{#TRS},'Have you picked up the existing bin?',{#TRD},{picked},{#TRC},\nif({picked} = 'no', concat(\n{#TRS},'What is the reason?',{#TRD},{reasonNotPicked},{#TRC})),\nif({commentsBiffa} != '', concat(\n{#TRS},'Comments',{#TRD},{commentsBiffa},{#TRC})),\n{#TRS},\"Officer's name\",{#TRD},{biffaOfficer},{#TRC},{#TTC})",
                     "helpText": "",
                     "hidden": true,
                     "readOnly": true,
@@ -10167,6 +10498,46 @@
                   },
                   "conditionInputs": [],
                   "id": "AF-Field-d8c33f09-802a-4c03-8f22-ad90b188dfef"
+                },
+                {
+                  "type": "text",
+                  "props": {
+                    "label": "reasonApp",
+                    "dataName": "reasonApp",
+                    "labelPosition": "alignLeft",
+                    "defaultValue": "",
+                    "helpText": "",
+                    "hidden": true,
+                    "readOnly": true,
+                    "summaryField": false,
+                    "displayName": true,
+                    "outerClass": null,
+                    "labelClass": null,
+                    "inputClass": null,
+                    "outputFormat": "normal",
+                    "currencyPrefix": null,
+                    "width": null,
+                    "inputMask": null,
+                    "inputMaskPlaceholder": null,
+                    "lengthCount": null,
+                    "hideWhenBlank": null,
+                    "displayCondition": null,
+                    "mandatoryCondition": null,
+                    "readonlyCondition": null,
+                    "mandatory": false,
+                    "minimumLength": "",
+                    "maximumLength": "",
+                    "validationCondition": "",
+                    "validationMask": "",
+                    "mandatoryMessage": "This field is required",
+                    "minimumLengthMessage": "Please input at least _min_value_ characters",
+                    "maximumLengthMessage": "Please input no more than _max_value_ characters",
+                    "validationMaskMessage": "Please input text of the format: _validation_mask_",
+                    "validationConditionMessage": "This field is invalid",
+                    "validationMaskMessageValue": "Select..."
+                  },
+                  "conditionInputs": [],
+                  "id": "AF-Field-51647c98-0ead-46ca-b93b-acd612d9d172"
                 }
               ]
             }
